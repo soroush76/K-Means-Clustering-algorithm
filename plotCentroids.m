@@ -1,18 +1,10 @@
-function plotCentroids(centroids, k, colorANDshape)
+function plotCentroids(centroids, k, centroids_color_shape)
 
 colors_list = ['r', 'b', 'm', 'y', 'k', 'c', 'g']';
-shapes_list = ['x', '*', '+', 'o']';
+shapes_list = ['*', '+', 'o', 'x']';
 
-c_idx = 1;
-s_idx = 1;
-
-for i=1:k
-	plot(centroids(i, 1), centroids(i, 2), sprintf('%s', colors_list(c_idx, :), shapes_list(s_idx, :)), 'MarkerSize', 20);
-	c_idx = c_idx + 1;
-	if c_idx == length(colors_list)+1
-		c_idx = 1;
-		s_idx = s_idx + 1;
-	end
+for i=1:k % plot data for each cluster centroid
+	plot(centroids(i, 1), centroids(i, 2), sprintf('%s', colors_list(centroids_color_shape(i, 1)), shapes_list(centroids_color_shape(i, 2))), 'MarkerSize', 20);
 end
 
 endfunction

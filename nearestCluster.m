@@ -1,7 +1,6 @@
-function [cluster] = nearestCluster(point, centroids, i)
+function [cost centroid] = nearestCluster(point, centroids, i)
 
 distances = sqrt(sum((point - centroids).^2, 2));
-
-[item, cluster] = min(distances);
+[cost, centroid] = min(distances);
 
 endfunction
