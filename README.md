@@ -6,6 +6,6 @@ There are multiple ways to cluster the data but K-Means algorithm is the most us
 Basically K-Means runs on distance calculations, which again uses “Euclidean Distance” for this purpose. This algorithm is an iterative process of clustering; which keeps iterating until it reaches the best solution or clusters in our problem space. 
 for more technical information of this algorithm visit this website: **https://www.toptal.com/machine-learning/clustering-algorithms**
 #
-To start working woth this algorithm, just follow this pattern in Matlab/Ocvate enviroment: `[centroids J] = kmeans(dataset, number_of_clusters);`
+To start working with this algorithm, just follow this pattern in Matlab/Octave environment: `[centroids J] = kmeans(dataset, number_of_clusters);`
 
 I'm using PCA algorithm for dimensionality reduction to plot high dimensionality dataset. Another feature is elbow method that can help you to choose a better number of clusters, just use this pattern: `[centroids J] = kmeans(dataset);`
