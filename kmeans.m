@@ -1,10 +1,16 @@
-function [centroids, J] = kmeans(dataset, k, showplot) % k is the number of clusters
+function [centroids, J] = kmeans(raw_dataset, k, showplot) % k is the number of clusters
+
+if size(raw_dataset, 2) > 2
+	dataset = pca(raw_dataset, 2);
+else
+	dataset = raw_dataset;
+end
 
 m = size(dataset, 1);
 
 first_time = true;
 
-for iter=1:10
+for iter=1:100
 	oldCentroids = zeros(k, 2); % vector of centroids
 	for i=1:k % random initialize cluster centroids
 		random = randi([1 m]);
