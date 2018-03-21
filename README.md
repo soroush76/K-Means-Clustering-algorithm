@@ -11,4 +11,4 @@ To start working with this algorithm, just follow this pattern in Matlab/Octave 
 I'm using PCA algorithm for dimensionality reduction to plot high dimensionality dataset. Another feature is elbow method that can help you to choose a better number of clusters, just use this pattern: `[centroids J] = kmeans(dataset);`
 
 You can see the result below:
-[!kmeans_result](https://github.com/soroush76/KMeans-Clustering-algorithm/blob/master/kmeans_run.jpg)
+![kmeans_result](https://github.com/soroush76/KMeans-Clustering-algorithm/blob/master/kmeans_run.jpg)
