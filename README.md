@@ -8,7 +8,7 @@ for more technical information of this algorithm visit this website: **https://w
 #
 To start working with this algorithm, just follow this pattern in Matlab/Octave environment: `[centroids J] = kmeans(dataset, number_of_clusters);`
 
-I'm using PCA algorithm for dimensionality reduction to plot high dimensionality dataset. Another feature is elbow method that can help you to choose a better number of clusters, just use this pattern: `[centroids J] = kmeans(dataset);`
-
-You can see the result below:
+Here's a sample run of KMeans algorithm:
 ![kmeans_result](https://github.com/soroush76/KMeans-Clustering-algorithm/blob/master/kmeans_run.jpg)
+
+I'm using PCA algorithm for dimensionality reduction to plot high dimensionality dataset. Another feature is elbow method that can help you to choose a better number of clusters, just use this pattern: `[centroids J] = kmeans_elbow(dataset);`
