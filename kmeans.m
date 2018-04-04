@@ -1,17 +1,11 @@
-function [centroids, J] = kmeans(raw_dataset, k, showplot) % k is the number of clusters
-
-if size(raw_dataset, 2) > 2
-	dataset = pca(raw_dataset, 2);
-else
-	dataset = raw_dataset;
-end
+function [centroids, c, J] = kmeans(dataset, k) % k is the number of clusters
 
 m = size(dataset, 1);
 
 first_time = true;
 
 for iter=1:100
-	oldCentroids = zeros(k, 2); % vector of centroids
+	oldCentroids = zeros(k, size(dataset, 2)); % vector of centroids
 	for i=1:k % random initialize cluster centroids
 		random = randi([1 m]);
 		oldCentroids(i, :) = dataset(random, :);
@@ -25,11 +19,11 @@ for iter=1:100
 			[cost(i) c(i)] = nearestCluster(dataset(i, :), oldCentroids, i);
 		end
 
-		newCentroids = zeros(k, 2); % vector of new centroids
+		newCentroids = zeros(k, size(dataset, 2)); % vector of new centroids
 		for i=1:k % move cluster step
 			newCentroids(i, :) =  datasetMean(dataset, c, i);
 		end
-
+		
 		if sum(sum(isnan(newCentroids))) != 0 % check if there is only 1 cluster and prevent error division by zero in datasetMean function
 			break
 		elseif newCentroids == oldCentroids % check if clusters are separated accurately and prevent wasting time
@@ -54,13 +48,10 @@ for iter=1:100
 end
 
 % plot the final result
-if k <= 28 && nargin<3 % because we have only 28 combinations of colors and shapes for plotting
-	clf;
-	hold on;
-	centroids_color_shape = plotData(dataset, c, k);
-	plotCentroids(centroids, k, centroids_color_shape);
-	xlabel('Year');
-	ylabel('# of Passengers');	
-end
+dataset = pca(dataset, 2);
+clf;
+hold on;
+centroids_color_shape = plotData(dataset, c, k);
+plotCentroids(centroids, k, centroids_color_shape);
 
 endfunction
